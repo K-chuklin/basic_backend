@@ -1,4 +1,4 @@
-from functions import get_data, get_filtered_data, get_sorted_data, get_formatted, hide_card_info
+from utils.utils import get_data, get_filtered_data, get_sorted_data, get_formatted, hide_card_info
 
 
 def main():

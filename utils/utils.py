@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 def get_data():
-    with open('operations.json', 'r', encoding='utf-8') as file:
+    with open('C:/Users/79969/PycharmProjects/basic_backend/utils/operations.json', 'r', encoding='utf-8') as file:
         data = json.loads(file.read())
         return data
 
@@ -31,18 +31,10 @@ def get_formatted(data):
 def hide_card_info(card_data):
     card_num = card_data.split()[-1]
     card_name = ' '.join(card_data.split()[:-1])
-    if len(card_data) != 0:
-        if len(card_num) == 16 and card_num.isdigit():
-            card_num = card_num[:4] + ' ' + card_num[4:6] + '** **** ' + card_num[-4:]
-        elif len(card_num) == 20 and card_num.isdigit():
-            card_num = '**' + card_num[-4:]
-        else:
-            return 'data error'
-
+    if len(card_num) == 16 and card_num.isdigit():
+        card_num = card_num[:4] + ' ' + card_num[4:6] + '** **** ' + card_num[-4:]
+    elif len(card_num) == 20 and card_num.isdigit():
+        card_num = '**' + card_num[-4:]
+    else:
+        return 'data error'
     return f'{card_name} {card_num}'
-
-
-def hide_card_check(card_data: str):
-    if card_data.startswith('Счет'):
-        return 'Счет ****' + card_data[-4:0]
-
